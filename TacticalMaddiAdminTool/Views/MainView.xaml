@@ -1,8 +1,8 @@
-﻿<Window x:Class="TacticalMaddiAdminTool.MainWindow"
+﻿<Window x:Class="TacticalMaddiAdminTool.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TextBlock x:Name="Message" />
     </Grid>
 </Window>
