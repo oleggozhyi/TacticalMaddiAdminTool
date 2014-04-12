@@ -71,8 +71,21 @@
     <Compile Include="Models\PluginInfo.cs" />
     <Compile Include="Models\SetInfo.cs" />
     <Compile Include="Services\MaddiService.cs" />
+    <Compile Include="ViewModels\CollectionsViewModel.cs" />
+    <Compile Include="ViewModels\FragmentsViewModel.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\SetsView.xaml.cs">
+      <DependentUpon>SetsView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\CollectionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FragmentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,10 +95,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\SetsViewModel.cs" />
+    <Compile Include="Views\CollectionsView.xaml.cs">
+      <DependentUpon>CollectionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FragmentsView.xaml.cs">
+      <DependentUpon>FragmentsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\SetsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

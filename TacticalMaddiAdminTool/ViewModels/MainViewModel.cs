@@ -1,16 +1,20 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace TacticalMaddiAdminTool.ViewModels
 {
-    public class MainViewModel : Caliburn.Micro.PropertyChangedBase
+    public class MainViewModel : Conductor<IScreen>.Collection.OneActive
     {
-        public MainViewModel()
+        public MainViewModel(SetsViewModel setsViewModel, CollectionsViewModel collectionsViewModel, FragmentsViewModel fragmentsViewModel)
         {
-            Message = "Hello world";
+            Items.Add(fragmentsViewModel);
+            Items.Add(collectionsViewModel);
+            Items.Add(setsViewModel);
+
+            ActivateItem(fragmentsViewModel);
         }
-        public string Message { get; set; }
     }
 }

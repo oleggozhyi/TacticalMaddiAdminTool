@@ -9,7 +9,7 @@ namespace TacticalMaddiAdminTool.Services
     public class MaddiService
     {
         public void Save(string entityXml)
-        { 
+        {
         }
 
         public SetInfo[] GetSets()
@@ -26,7 +26,4 @@ namespace TacticalMaddiAdminTool.Services
         }
 
     }
-
-
-    
 }

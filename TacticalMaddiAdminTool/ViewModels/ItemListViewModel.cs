@@ -10,11 +10,12 @@ namespace TacticalMaddiAdminTool.ViewModels
     public class ItemListViewModel : PropertyChangedBase
     {
         private string searchCriterria;
+        private IEventAggregator eventAggregator;
 
-        public ItemListViewModel()
-        { 
+        public ItemListViewModel(IEventAggregator eventAggregator)
+        {
+            this.eventAggregator = eventAggregator;
         }
-
 
         public string SearchCriterria
         {
@@ -30,7 +31,6 @@ namespace TacticalMaddiAdminTool.ViewModels
             }
         }
 
-        public ObservableCollection<string> Items { get;  }
 
         private void ApplySearchCriteria()
         {

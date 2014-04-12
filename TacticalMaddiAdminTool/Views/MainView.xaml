@@ -6,12 +6,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+        <TabControl Grid.Row="1" x:Name="Items">
+            
+        </TabControl>
+
     </Grid>
 </Window>
