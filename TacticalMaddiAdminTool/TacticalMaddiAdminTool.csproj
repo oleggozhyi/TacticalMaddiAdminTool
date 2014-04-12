@@ -83,11 +83,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\ItemTypeToIconStyleConverter.cs" />
+    <Compile Include="Events\OpenItemEvent.cs" />
     <Compile Include="Helpers\DebugLogger.cs" />
     <Compile Include="Models\ActiveFragmentInfo.cs" />
     <Compile Include="Models\FragmentInfo.cs" />
     <Compile Include="Models\CollectionInfo.cs" />
     <Compile Include="Models\IItem.cs" />
+    <Compile Include="Models\IXmlItem.cs" />
     <Compile Include="Models\PluginInfo.cs" />
     <Compile Include="Models\SetInfo.cs" />
     <Compile Include="Services\Fake\FakeMaddiService.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Services\MaddiService.cs" />
     <Compile Include="ViewModels\CollectionsViewModel.cs" />
     <Compile Include="ViewModels\FragmentsViewModel.cs" />
+    <Compile Include="ViewModels\ItemEditorViewModel.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -107,6 +111,9 @@
     </Compile>
     <Compile Include="Views\SetsView.xaml.cs">
       <DependentUpon>SetsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\XmlEditorView.xaml.cs">
+      <DependentUpon>XmlEditorView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\CollectionsView.xaml">
       <SubType>Designer</SubType>
@@ -145,6 +152,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\SetsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XmlEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

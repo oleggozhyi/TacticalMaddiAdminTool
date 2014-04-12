@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TacticalMaddiAdminTool.Events;
 using TacticalMaddiAdminTool.Models;
 using TacticalMaddiAdminTool.Services;
 
@@ -17,6 +18,11 @@ namespace TacticalMaddiAdminTool.ViewModels
         private ItemsProvider itemsProvider;
         private List<ItemViewModel> items;
 
+        public ItemsViewModel(IEventAggregator eventAggregator)
+        {
+            this.eventAggregator = eventAggregator;
+        }
+
         public List<ItemViewModel> Items
         {
             get { return items; }
@@ -27,10 +33,18 @@ namespace TacticalMaddiAdminTool.ViewModels
             }
         }
 
-
-        public ItemsViewModel(IEventAggregator eventAggregator)
+        public string SearchCriterria
         {
-            this.eventAggregator = eventAggregator;
+            get { return this.searchCriterria; }
+            set
+            {
+                if (this.searchCriterria == value)
+                    return;
+
+                this.SearchCriterria = value;
+                NotifyOfPropertyChange(() => SearchCriterria);
+                ApplySearchCriteria();
+            }
         }
 
         public void SetItemsProvider(ItemsProvider itemsProvider)
@@ -50,30 +64,14 @@ namespace TacticalMaddiAdminTool.ViewModels
             Items = items.Select(i => new ItemViewModel(i)).ToList();
         }
 
-
-        public string SearchCriterria
-        {
-            get { return this.searchCriterria; }
-            set
-            {
-                if (this.searchCriterria == value)
-                    return;
-
-                this.SearchCriterria = value;
-                NotifyOfPropertyChange(() => SearchCriterria);
-                ApplySearchCriteria();
-            }
-        }
-
-
         private void ApplySearchCriteria()
         {
             throw new NotImplementedException();
         }
 
-        public void OpenForEdit(ItemViewModel item)
+        public void OpenForEdit(ItemViewModel itemVm)
         {
-            System.Windows.MessageBox.Show("Uhaha");
+            this.eventAggregator.Publish(new OpenItemEvent { Item = itemVm.Item });
         }
     }
 }

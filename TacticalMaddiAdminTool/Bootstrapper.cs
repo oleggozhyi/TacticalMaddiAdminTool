@@ -41,6 +41,7 @@ namespace TacticalMaddiAdminTool
             container.PerRequest<FragmentsViewModel>();
             container.PerRequest<SetsViewModel>();
             container.PerRequest<ItemsViewModel>();
+            container.PerRequest<XmlEditorViewModel>();
   
         }
 

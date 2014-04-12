@@ -24,8 +24,5 @@ namespace TacticalMaddiAdminTool.Services
         {
             return new FragmentInfo[0];
         }
-
     }
-
-
 }
