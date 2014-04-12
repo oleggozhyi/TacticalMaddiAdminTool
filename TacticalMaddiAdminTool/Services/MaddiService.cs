@@ -6,7 +6,7 @@ using TacticalMaddiAdminTool.Models;
 
 namespace TacticalMaddiAdminTool.Services
 {
-    public class MaddiService
+    public class MaddiService : TacticalMaddiAdminTool.Services.IMaddiService
     {
         public void Save(string entityXml)
         {
@@ -26,4 +26,6 @@ namespace TacticalMaddiAdminTool.Services
         }
 
     }
+
+
 }

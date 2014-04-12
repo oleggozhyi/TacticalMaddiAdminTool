@@ -3,16 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TacticalMaddiAdminTool.Services;
 
 namespace TacticalMaddiAdminTool.ViewModels
 {
     public class SetsViewModel : Screen
     {
-        public SetsViewModel()
+        public SetsViewModel(SetsProvider setsProvider, ItemListViewModel setsViewModel)
         {
             DisplayName = "Sets";
+            setsViewModel.SetItemsProvider(setsProvider);
+            Items = setsViewModel;
         }
-        public string Message { get { return "Sets"; } }
-
+        public ItemListViewModel Items { get; private set; }
     }
 }

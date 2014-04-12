@@ -26,7 +26,10 @@ namespace TacticalMaddiAdminTool
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
 
-            container.Singleton<MaddiService>();
+            container.Singleton<IMaddiService, MaddiService>();
+            container.Singleton<FragmentsProvider>();
+            container.Singleton<SetsProvider>();
+            container.Singleton<CollectionsProvider>();
 
             //ViewModels
             container.PerRequest<MainViewModel>();

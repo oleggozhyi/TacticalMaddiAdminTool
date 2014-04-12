@@ -8,9 +8,6 @@
             <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TabControl Grid.Row="1" x:Name="Items">
-            
-        </TabControl>
-
+        <TabControl Grid.Row="1" x:Name="Items" />
     </Grid>
 </Window>

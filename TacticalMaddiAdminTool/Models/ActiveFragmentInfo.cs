@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TacticalMaddiAdminTool.Models
 {
-    public class ActiveFragmentInfo : FragmentInfo
+    public class ActiveFragmentInfo : FragmentInfo, IItem
     {
         public override string GetXml()
         {

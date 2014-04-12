@@ -3,16 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TacticalMaddiAdminTool.Services;
 
 namespace TacticalMaddiAdminTool.ViewModels
 {
     public class FragmentsViewModel : Screen
     {
-        public FragmentsViewModel()
+        public FragmentsViewModel(FragmentsProvider fragments, ItemListViewModel fragmentsViewModel)
         {
             DisplayName = "Fragments";
+            fragmentsViewModel.SetItemsProvider(fragments);
+            Items = fragmentsViewModel;
+            
         }
-        public string Message { get { return "Fragments"; } }
-
+        public ItemListViewModel Items { get; private set; }
     }
 }

@@ -5,8 +5,9 @@ using System.Text;
 
 namespace TacticalMaddiAdminTool.Models
 {
-    public class SetInfo
+    public class SetInfo : IItem
     {
+        public string Title { get { return SetName; } }
         public string SetName { get; set; }
         public string GetXml()
         {
