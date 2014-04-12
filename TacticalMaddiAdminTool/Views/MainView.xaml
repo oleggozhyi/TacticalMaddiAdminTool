@@ -4,5 +4,14 @@
         Title="MainWindow" Height="586" Width="945"
         Background="{x:Static SystemColors.ControlBrush}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
     </Grid>
 </Window>
