@@ -9,13 +9,12 @@ namespace TacticalMaddiAdminTool.ViewModels
 {
     public class CollectionsViewModel : Screen
     {
-        public CollectionsViewModel(CollectionsProvider collectionsProvider, ItemListViewModel collectionsViewModel)
+        public CollectionsViewModel(CollectionsProvider collectionsProvider, ItemsViewModel collectionsViewModel)
         {
             DisplayName = "Collections";
             collectionsViewModel.SetItemsProvider(collectionsProvider);
             Items = collectionsViewModel;
-
         }
-        public ItemListViewModel Items { get; private set; }
+        public ItemsViewModel Items { get; private set; }
     }
 }

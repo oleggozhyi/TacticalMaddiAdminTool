@@ -9,13 +9,12 @@ namespace TacticalMaddiAdminTool.ViewModels
 {
     public class FragmentsViewModel : Screen
     {
-        public FragmentsViewModel(FragmentsProvider fragments, ItemListViewModel fragmentsViewModel)
+        public FragmentsViewModel(FragmentsProvider fragments, ItemsViewModel fragmentsViewModel)
         {
             DisplayName = "Fragments";
             fragmentsViewModel.SetItemsProvider(fragments);
             Items = fragmentsViewModel;
-            
         }
-        public ItemListViewModel Items { get; private set; }
+        public ItemsViewModel Items { get; private set; }
     }
 }

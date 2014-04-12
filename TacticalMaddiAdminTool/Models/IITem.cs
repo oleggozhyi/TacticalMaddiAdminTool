@@ -7,6 +7,6 @@ namespace TacticalMaddiAdminTool.Models
 {
     public interface IItem
     {
-        public string Title { get; }
+        string Title { get; }
     }
 }

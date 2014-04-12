@@ -1,8 +1,9 @@
 ﻿using System;
 using TacticalMaddiAdminTool.Models;
+
 namespace TacticalMaddiAdminTool.Services
 {
-    interface IMaddiService
+    public interface IMaddiService
     {
         CollectionInfo[] GetCollections();
         FragmentInfo[] GetFragments();

@@ -3,15 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:TacticalMaddiAdminTool.ViewModels"
+             xmlns:cm="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="listItem" DataType="vm:ItemViewModel">
+            <ContentControl cm:View.Model="{Binding}" />
+        </DataTemplate>
+        <Style x:Key="itemContainerStyle" TargetType="{x:Type ListBoxItem}" >
+            <Setter Property="cm:Message.Attach"  Value="[Event MouseDoubleClick] = [Action OpenForEdit($dataContext)]"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="37,10,0,0" TextWrapping="Wrap" Text="Filter goes here" VerticalAlignment="Top"/>
-        <ListBox Grid.Row="1" Margin="5" x:Name="Items"/>
-
+        <ListBox Grid.Row="1" Margin="5" x:Name="Items" ItemTemplate="{StaticResource listItem}" ItemContainerStyle="{StaticResource itemContainerStyle}" />
     </Grid>
 </UserControl>

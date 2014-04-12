@@ -4,23 +4,36 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TacticalMaddiAdminTool.Models;
 using TacticalMaddiAdminTool.Services;
 
 namespace TacticalMaddiAdminTool.ViewModels
 {
-    public class ItemListViewModel : PropertyChangedBase
+    public class ItemsViewModel : PropertyChangedBase
     {
         private string searchCriterria;
         private IEventAggregator eventAggregator;
-        private IItemsProvider itemsProvider;
+        private ItemsProvider itemsProvider;
+        private List<ItemViewModel> items;
 
-        public ItemListViewModel(IEventAggregator eventAggregator)
+        public List<ItemViewModel> Items
+        {
+            get { return items; }
+            set
+            {
+                items = value;
+                NotifyOfPropertyChange(() => Items);
+            }
+        }
+
+
+        public ItemsViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
         }
 
-        public void SetItemsProvider(IItemsProvider itemsProvider)
+        public void SetItemsProvider(ItemsProvider itemsProvider)
         {
             this.itemsProvider = itemsProvider;
             UpdateItems();
@@ -28,7 +41,8 @@ namespace TacticalMaddiAdminTool.ViewModels
 
         private void UpdateItems()
         {
-            this.itemsProvider.GetItemsAsync().ContinueWith(t => SyncItems(t.Result));
+            var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            this.itemsProvider.GetItemsAsync().ContinueWith(t => SyncItems(t.Result), scheduler);
         }
 
         private void SyncItems(IItem[] items)
@@ -36,7 +50,6 @@ namespace TacticalMaddiAdminTool.ViewModels
             Items = items.Select(i => new ItemViewModel(i)).ToList();
         }
 
-        public List<ItemViewModel> Items { get; set; }
 
         public string SearchCriterria
         {
@@ -58,5 +71,9 @@ namespace TacticalMaddiAdminTool.ViewModels
             throw new NotImplementedException();
         }
 
+        public void OpenForEdit(ItemViewModel item)
+        {
+            System.Windows.MessageBox.Show("Uhaha");
+        }
     }
 }

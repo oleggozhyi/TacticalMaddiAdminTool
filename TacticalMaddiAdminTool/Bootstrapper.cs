@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TacticalMaddiAdminTool.Helpers;
 using TacticalMaddiAdminTool.Services;
 using TacticalMaddiAdminTool.ViewModels;
 
@@ -20,13 +21,16 @@ namespace TacticalMaddiAdminTool
 
         protected override void Configure()
         {
+
+            LogManager.GetLog = type => new DebugLogger(type);
+
             container = new SimpleContainer();
 
             // Services
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
 
-            container.Singleton<IMaddiService, MaddiService>();
+            container.Singleton<IMaddiService, FakeMaddiService>();
             container.Singleton<FragmentsProvider>();
             container.Singleton<SetsProvider>();
             container.Singleton<CollectionsProvider>();
@@ -36,6 +40,7 @@ namespace TacticalMaddiAdminTool
             container.PerRequest<CollectionsViewModel>();
             container.PerRequest<FragmentsViewModel>();
             container.PerRequest<SetsViewModel>();
+            container.PerRequest<ItemsViewModel>();
   
         }
 
