@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="TacticalMaddiAdminTool.Views.ConnectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:mahaps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="350">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=Environment}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 70 0 0">
+            <TextBlock HorizontalAlignment="Left" Text="Connect  to  MaDDI"  FontFamily="{StaticResource HeaderFontFamily}" FontSize="{StaticResource HeaderFontSize}" Margin="0 0 0 30" />
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="334"  Text="Enter MaDDI environment you want to connect to"  FontFamily="{StaticResource HeaderFontFamily}" FontSize="{StaticResource WindowTitleFontSize}" />
+            <TextBox Margin="0 5 0 5" x:Name="Environment"></TextBox>
+            <Button Margin="0 5 0 5" Content="Connect" x:Name="Connect" IsDefault="True"></Button>
+            <mahaps:ProgressRing Visibility="{Binding IsConnecting, Converter={StaticResource BooleanToVisibilityConvertqer}}"></mahaps:ProgressRing>
+        </StackPanel>
+    </Grid>
+</UserControl>

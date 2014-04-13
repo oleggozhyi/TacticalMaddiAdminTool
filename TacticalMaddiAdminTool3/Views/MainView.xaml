@@ -2,26 +2,50 @@
         xmlns:mahaps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit" Loaded="MainView_OnLoaded"
-        Title="MADDI ADMIN TOOL (TACTICAL)" Height="500" Width="900">
+        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:views="clr-namespace:TacticalMaddiAdminTool.Views"
+        Loaded="MainView_OnLoaded"
+                    TitleCaps="False"
+                     BorderThickness="1"    
+                      SaveWindowPosition="True"
+                      WindowStartupLocation="CenterScreen"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                    
+        Height="500" Width="900">
+    <mahaps:MetroWindow.WindowCommands>
+        <mahaps:WindowCommands>
+            <TextBlock Text="{Binding ConnectionStatus}" Margin="7" Foreground="Wheat" />
+            <Button Content="Disconnect"  Visibility="{Binding ShowDisconnect, Converter={StaticResource BooleanToVisibilityConvertqer}}" 
+                    cal:Message.Attach="Disconnect" Margin="-3" />
+
+        </mahaps:WindowCommands>
+    </mahaps:MetroWindow.WindowCommands>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <ContentControl x:Name="Connection"/>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <ContentControl x:Name="Items"></ContentControl>
-            <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1" Margin="5">
-                <avalonedit:TextEditor   x:Name="txtCode" ShowLineNumbers="True"
+        <!--cal:Message.Attach="DoSomething" Margin="-3" />-->
+        <mahaps:TransitioningContentControl x:Name="Content" Transition="LeftReplace"  />
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <ContentControl x:Name="Connection"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <ContentControl x:Name="Items" />
+                <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="5" />
+                <Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="1" Margin="5">
+                    <avalonedit:TextEditor   x:Name="txtCode" 
                     FontFamily="Consolas" SyntaxHighlighting="xml"
                     FontSize="10pt"/>
-            </Border>
-        </Grid>
-        
+                </Border>
+            </Grid>
+           
+        </Grid>-->
     </Grid>
 </mahaps:MetroWindow>

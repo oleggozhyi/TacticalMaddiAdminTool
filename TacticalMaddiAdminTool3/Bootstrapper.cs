@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using System.Linq;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using TacticalMaddiAdminTool.Infrastructure;
@@ -9,11 +10,18 @@ namespace TacticalMaddiAdminTool
 {
     public class Bootstrapper : BootstrapperBase
     {
+        public static Bootstrapper Current { get; private set; }
+        public IEventAggregator EventAggregator
+        {
+            get { return GetAllInstances(typeof(IEventAggregator)).Cast<IEventAggregator>().First(); }
+        }
+
         SimpleContainer container;
 
         public Bootstrapper()
         {
             Start();
+            Current = this;
         }
 
         protected override void Configure()
@@ -36,6 +44,8 @@ namespace TacticalMaddiAdminTool
             container.PerRequest<MainViewModel>();
             container.PerRequest<ItemListViewModel>();
             container.PerRequest<ConnectionViewModel>();
+            container.PerRequest<ConnectViewModel>();
+
             //container.PerRequest<SetsViewModel>();
             //container.PerRequest<ItemsViewModel>();
             //container.PerRequest<XmlEditorViewModel>();
