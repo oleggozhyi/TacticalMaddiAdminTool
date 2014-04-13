@@ -5,47 +5,22 @@
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         xmlns:cal="http://www.caliburnproject.org"
         xmlns:views="clr-namespace:TacticalMaddiAdminTool.Views"
-        Loaded="MainView_OnLoaded"
                     TitleCaps="False"
-                     BorderThickness="1"    
+                     BorderThickness="2"    
                       SaveWindowPosition="True"
                       WindowStartupLocation="CenterScreen"
-                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderBrush="#FF009CCC"
                     
         Height="500" Width="900">
     <mahaps:MetroWindow.WindowCommands>
         <mahaps:WindowCommands>
-            <TextBlock Text="{Binding ConnectionStatus}" Margin="7" Foreground="Wheat" />
+            <TextBlock Text="{Binding ConnectionStatus}" Margin="7" Foreground="Gold" FontWeight="Bold" />
             <Button Content="Disconnect"  Visibility="{Binding ShowDisconnect, Converter={StaticResource BooleanToVisibilityConvertqer}}" 
                     cal:Message.Attach="Disconnect" Margin="-3" />
 
         </mahaps:WindowCommands>
     </mahaps:MetroWindow.WindowCommands>
     <Grid>
-        <!--cal:Message.Attach="DoSomething" Margin="-3" />-->
-        <mahaps:TransitioningContentControl x:Name="Content" Transition="LeftReplace"  />
-        <!--<Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
-            <ContentControl x:Name="Connection"/>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="8"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <ContentControl x:Name="Items" />
-                <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="5" />
-                <Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="1" Margin="5">
-                    <avalonedit:TextEditor   x:Name="txtCode" 
-                    FontFamily="Consolas" SyntaxHighlighting="xml"
-                    FontSize="10pt"/>
-                </Border>
-            </Grid>
-           
-        </Grid>-->
+        <mahaps:TransitioningContentControl x:Name="Content" Transition="LeftReplace"  Margin="15" />
     </Grid>
 </mahaps:MetroWindow>

@@ -29,18 +29,10 @@ namespace TacticalMaddiAdminTool.Views
             eventAggregator.Subscribe(this);
         }
 
-        private void MainView_OnLoaded(object sender, RoutedEventArgs e)
-        {
-
-            //txtCode.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("XML");
-        }
-
         public void Handle(ShowMessageEvent message)
         {
             MessageBox.Show(this, message.Message, message.Title, MessageBoxButton.OK,
                 message.Exception != null ? MessageBoxImage.Error : MessageBoxImage.Information);
         }
-
-       
     }
 }

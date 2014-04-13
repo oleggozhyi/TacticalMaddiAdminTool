@@ -9,8 +9,13 @@
     <Grid FocusManager.FocusedElement="{Binding ElementName=Environment}">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 70 0 0">
             <TextBlock HorizontalAlignment="Left" Text="Connect  to  MaDDI"  FontFamily="{StaticResource HeaderFontFamily}" FontSize="{StaticResource HeaderFontSize}" Margin="0 0 0 30" />
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="334"  Text="Enter MaDDI environment you want to connect to"  FontFamily="{StaticResource HeaderFontFamily}" FontSize="{StaticResource WindowTitleFontSize}" />
-            <TextBox Margin="0 5 0 5" x:Name="Environment"></TextBox>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="340"  Text="Enter MaDDI environment you want to connect to"  FontFamily="{StaticResource HeaderFontFamily}" FontSize="{StaticResource WindowTitleFontSize}" />
+
+            <ComboBox x:Name="Environment" Text ="{Binding Environment}" ItemsSource="{Binding Environments}" IsEditable="True" 
+                      Margin="0, 5, 0, 0"
+                      SelectedIndex="-1" />
+                <!--<TextBox Margin="0 5 0 5"></TextBox>-->
+            
             <Button Margin="0 5 0 5" Content="Connect" x:Name="Connect" IsDefault="True"></Button>
             <mahaps:ProgressRing Visibility="{Binding IsConnecting, Converter={StaticResource BooleanToVisibilityConvertqer}}"></mahaps:ProgressRing>
         </StackPanel>

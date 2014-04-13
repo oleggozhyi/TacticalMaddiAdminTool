@@ -43,13 +43,10 @@ namespace TacticalMaddiAdminTool
             //ViewModels
             container.PerRequest<MainViewModel>();
             container.PerRequest<ItemListViewModel>();
-            container.PerRequest<ConnectionViewModel>();
             container.PerRequest<ConnectViewModel>();
-
-            //container.PerRequest<SetsViewModel>();
-            //container.PerRequest<ItemsViewModel>();
-            //container.PerRequest<XmlEditorViewModel>();
-
+            container.PerRequest<MainContentViewModel>();
+            container.PerRequest<XmlEditorViewModel>();
+            
         }
 
         protected override object GetInstance(Type service, string key)

@@ -11,17 +11,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ICSharpCode.AvalonEdit.Highlighting;
 
 namespace TacticalMaddiAdminTool.Views
 {
     /// <summary>
-    /// Interaction logic for ConnectionView.xaml
+    /// Interaction logic for XmlEditorView.xaml
     /// </summary>
-    public partial class ConnectionView : UserControl
+    public partial class XmlEditorView : UserControl
     {
-        public ConnectionView()
+        public XmlEditorView()
         {
             InitializeComponent();
+        }
+
+        private void XmlEditorView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            XmlTextEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("XML");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -53,7 +54,7 @@ namespace TacticalMaddiAdminTool.ViewModels
             TaskScheduler scheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var connectionTask = Task.Factory.StartNew(() =>
             {
-                Thread.Sleep(2000);
+                Thread.Sleep(500);
                 if (Environment == "throw")
                     throw new Exception("Cannot connect to Maddi - user is invalid");
             });
@@ -67,12 +68,17 @@ namespace TacticalMaddiAdminTool.ViewModels
             {
                 IsConnecting = false;
                 _eventAggregator.Publish(new ShowMessageEvent { Title = "ERROR", Message = t.Exception.InnerException.Message, Exception = t.Exception.InnerException });
-            }, TaskContinuationOptions.OnlyOnFaulted);
+            }, default(CancellationToken), TaskContinuationOptions.OnlyOnFaulted, scheduler);
         }
 
         public bool CanConnect
         {
             get { return !_isConnecting && !String.IsNullOrWhiteSpace(Environment); }
+        }
+
+        public string[] Environments
+        {
+            get { return ConfigurationManager.AppSettings["environments"].Split(','); }
         }
     }
 }

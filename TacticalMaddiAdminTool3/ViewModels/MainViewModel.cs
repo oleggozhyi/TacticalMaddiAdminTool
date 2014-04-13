@@ -7,22 +7,20 @@ namespace TacticalMaddiAdminTool.ViewModels
     public class MainViewModel : Screen, IHandle<ConnectedEvent>
     {
         private readonly IEventAggregator _eventAggregator;
+        private readonly MainContentViewModel _mainContentViewModel;
         private readonly ConnectViewModel _connectViewModel;
         private object _content;
         private string _connectionStatus;
         public ItemListViewModel Items { get; set; }
-        public ConnectionViewModel Connection { get; set; }
 
         public MainViewModel(IEventAggregator eventAggregator,
-                            ItemListViewModel itemListViewModel,
-                            ConnectionViewModel connection,
+                          MainContentViewModel mainContentViewModel,
                             ConnectViewModel connectViewModel)
         {
             _eventAggregator = eventAggregator;
+            _mainContentViewModel = mainContentViewModel;
             _eventAggregator.Subscribe(this);
             _connectViewModel = connectViewModel;
-            Items = itemListViewModel;
-            Connection = connection;
             Content = _connectViewModel;
             DisplayName = "MaDDI Administation Tool";
         }
@@ -66,7 +64,7 @@ namespace TacticalMaddiAdminTool.ViewModels
         public void Handle(ConnectedEvent message)
         {
             ConnectionStatus = "Connected to " + message.Environment.ToUpper();
-            Content = Items;
+            Content = _mainContentViewModel;
         }
     }
 }
