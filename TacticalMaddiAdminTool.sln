@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TacticalMaddiAdminTool", "TacticalMaddiAdminTool\TacticalMaddiAdminTool.csproj", "{81BB18B0-22C6-4EC7-A50D-0C1CB17EFFD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TacticalMaddiAdminTool3", "TacticalMaddiAdminTool3\TacticalMaddiAdminTool3.csproj", "{4E4E0579-25AB-4933-9AF7-F2FEA1BDE584}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{81BB18B0-22C6-4EC7-A50D-0C1CB17EFFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BB18B0-22C6-4EC7-A50D-0C1CB17EFFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BB18B0-22C6-4EC7-A50D-0C1CB17EFFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4E0579-25AB-4933-9AF7-F2FEA1BDE584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4E0579-25AB-4933-9AF7-F2FEA1BDE584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4E0579-25AB-4933-9AF7-F2FEA1BDE584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4E0579-25AB-4933-9AF7-F2FEA1BDE584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

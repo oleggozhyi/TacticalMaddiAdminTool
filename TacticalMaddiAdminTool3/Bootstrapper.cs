@@ -1,9 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TacticalMaddiAdminTool.Helpers;
+using TacticalMaddiAdminTool.Infrastructure;
 using TacticalMaddiAdminTool.Services;
 using TacticalMaddiAdminTool.ViewModels;
 
@@ -14,9 +12,9 @@ namespace TacticalMaddiAdminTool
         SimpleContainer container;
 
         public Bootstrapper()
-		{
-			Start();
-		}
+        {
+            Start();
+        }
 
         protected override void Configure()
         {
@@ -29,19 +27,19 @@ namespace TacticalMaddiAdminTool
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
 
-            container.Singleton<IMaddiService, FakeMaddiService>();
-            container.Singleton<FragmentsProvider>();
-            container.Singleton<SetsProvider>();
-            container.Singleton<CollectionsProvider>();
+            container.Singleton<ItemsProvider>();
+            //container.Singleton<FragmentsProvider>();
+            //container.Singleton<SetsProvider>();
+            //container.Singleton<CollectionsProvider>();
 
             //ViewModels
             container.PerRequest<MainViewModel>();
-            container.PerRequest<CollectionsViewModel>();
-            container.PerRequest<FragmentsViewModel>();
-            container.PerRequest<SetsViewModel>();
-            container.PerRequest<ItemsViewModel>();
-            container.PerRequest<XmlEditorViewModel>();
-  
+            container.PerRequest<ItemListViewModel>();
+            container.PerRequest<ConnectionViewModel>();
+            //container.PerRequest<SetsViewModel>();
+            //container.PerRequest<ItemsViewModel>();
+            //container.PerRequest<XmlEditorViewModel>();
+
         }
 
         protected override object GetInstance(Type service, string key)
