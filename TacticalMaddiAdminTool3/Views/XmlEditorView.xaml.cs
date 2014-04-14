@@ -24,10 +24,5 @@ namespace TacticalMaddiAdminTool.Views
         {
             InitializeComponent();
         }
-
-        private void XmlEditorView_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            XmlTextEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("XML");
-        }
     }
 }

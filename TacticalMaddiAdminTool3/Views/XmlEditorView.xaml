@@ -6,13 +6,32 @@
              xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:infrastructure="clr-namespace:TacticalMaddiAdminTool.Infrastructure"
-             mc:Ignorable="d" Loaded="XmlEditorView_OnLoaded"
+             mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="1" Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+            <TextBlock Text="Category: " FontWeight="Bold" ></TextBlock>
+            <TextBlock Text="{Binding SelectedItem.ItemType}" />
+            <TextBlock Text="Title: " FontWeight="Bold"></TextBlock>
+            <TextBlock Text="{Binding SelectedItem.Title}" />
+        </StackPanel>
+        <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="1">
             <avalonedit:TextEditor x:Name="XmlTextEditor"
                     FontFamily="Consolas"
+                      SyntaxHighlighting="XML"             
                     FontSize="10pt">
+                <avalonedit:TextEditor.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="Cut" />
+                        <MenuItem Command="Copy" />
+                        <MenuItem Command="Paste" />
+                    </ContextMenu>
+                </avalonedit:TextEditor.ContextMenu>
                 <i:Interaction.Behaviors>
                     <infrastructure:AvalonEditBehaviour Text="{Binding Xml, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </i:Interaction.Behaviors>

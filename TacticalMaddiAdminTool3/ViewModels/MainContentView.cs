@@ -7,11 +7,12 @@ using TacticalMaddiAdminTool.Events;
 
 namespace TacticalMaddiAdminTool.ViewModels
 {
-    public class MainContentViewModel: PropertyChangedBase, IHandle<SelectedItemChangedEvent>
+    public class MainContentViewModel : PropertyChangedBase, IHandle<SelectedItemChangedEvent>
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly XmlEditorViewModel _xmlEditorViewModel;
         private object _editor;
+        private ItemViewModel _selectedItem;
         public ItemListViewModel ItemList { get; set; }
 
         public MainContentViewModel(IEventAggregator eventAggregator, ItemListViewModel itemListViewModel, XmlEditorViewModel xmlEditorViewModel)
@@ -42,7 +43,10 @@ namespace TacticalMaddiAdminTool.ViewModels
                 if (Equals(value, _editor)) return;
                 _editor = value;
                 NotifyOfPropertyChange(() => Editor);
+                NotifyOfPropertyChange(() => ShowEditor);
             }
         }
+
+        public bool ShowEditor { get { return Editor != null; } }
     }
 }

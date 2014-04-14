@@ -8,9 +8,35 @@ namespace TacticalMaddiAdminTool.ViewModels
 {
     public class XmlEditorViewModel : PropertyChangedBase
     {
+        private string _xml;
+        private ItemViewModel _selectedItem;
+
         public void SetItem(ItemViewModel itemViewModel)
         {
             Xml = GetXml(itemViewModel);
+            SelectedItem = itemViewModel;
+        }
+
+        public ItemViewModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                if (Equals(value, _selectedItem)) return;
+                _selectedItem = value;
+                NotifyOfPropertyChange(() => SelectedItem);
+            }
+        }
+
+        public string Xml
+        {
+            get { return _xml; }
+            set
+            {
+                if (value == _xml) return;
+                _xml = value;
+                NotifyOfPropertyChange(() => Xml);
+            }
         }
 
         private string GetXml(ItemViewModel itemViewModel)
@@ -32,19 +58,6 @@ namespace TacticalMaddiAdminTool.ViewModels
    </note>
  </messages>";
 
-        }
-
-        private string _xml;
-
-        public string Xml
-        {
-            get { return _xml; }
-            set
-            {
-                if (value == _xml) return;
-                _xml = value;
-                NotifyOfPropertyChange(() => Xml);
-            }
         }
     }
 }

@@ -56,7 +56,7 @@ namespace TacticalMaddiAdminTool.Infrastructure
                 if (editor.Document != null)
                 {
                     var caretOffset = editor.CaretOffset;
-                    editor.Text = dependencyPropertyChangedEventArgs.NewValue.ToString();
+                    editor.Document.Text = dependencyPropertyChangedEventArgs.NewValue.ToString();
                     editor.CaretOffset = caretOffset;
                 }
             }

@@ -13,6 +13,9 @@
                     <Setter Property="Width" Value="110"/>
                     <Setter Property="Margin" Value="5"/>
                 </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -26,8 +29,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
-                
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="7">Create new </Label>
@@ -36,12 +37,17 @@
                 <Button Content="Fragment"/>
                 <Button Content="Active Fragment"/>
             </StackPanel>
-            <mahaps:TransitioningContentControl x:Name="Editor" Grid.Row="1" Transition="Left"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
-                <Button Content="Save"/>
-                <Button Content="Cancel"/>
-            </StackPanel>
+            <Grid Grid.Row="1" Visibility="{Binding ShowEditor, Converter={StaticResource BooleanToVisibilityConvertqer}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <mahaps:TransitioningContentControl x:Name="Editor" Grid.Row="0" Transition="Left" Margin="16 0 16 16"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+                    <Button Content="Save"/>
+                    <Button Content="Cancel"/>
+                </StackPanel>
+            </Grid>
         </Grid>
-        
     </Grid>
 </UserControl>
